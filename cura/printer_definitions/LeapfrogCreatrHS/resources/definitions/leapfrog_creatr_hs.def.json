@@ -1,0 +1,86 @@
+{
+    "version": 2,
+    "name": "Leapfrog Creatr HS",
+    "inherits": "fdmprinter",
+    "metadata": {
+		"visible": true,
+        "author": "casaucldrones",
+        "manufacturer": "Leapfrog",
+        "file_formats": "text/x-gcode",
+		"icon": "icon_ultimaker2",
+        "platform": "ultimaker3_platform.obj",
+		"platform_texture": "LeapfrogCreatrHSbackplate.png",
+		"has_materials": true,
+        "has_machine_quality": false,
+		"exclude_materials": ["generic_hips", "generic_petg", "generic_bam", "ultimaker_bam", "generic_pva", "ultimaker_pva", "generic_tough_pla", "ultimaker_tough_pla_black", "ultimaker_tough_pla_green", "ultimaker_tough_pla_red", "ultimaker_tough_pla_white"],
+        "first_start_actions": [],
+        "supported_actions": [],
+        "machine_extruder_trains":
+        {
+            "0": "leapfrog_creatr_hs_extruder_0",
+            "1": "leapfrog_creatr_hs_extruder_1"
+        }
+    },
+
+    "overrides": {
+        "machine_name": { "default_value": "Leapfrog Creatr HS" },
+        "machine_heated_bed": {
+            "default_value": true
+        },
+        "machine_width": {
+            "default_value": 270
+        },
+        "machine_height": {
+            "default_value": 180
+        },
+        "machine_depth": {
+            "default_value": 280
+        },
+        "machine_center_is_zero": {
+            "default_value": false
+        },
+        "machine_nozzle_size": {
+            "default_value": 0.35
+        },
+        "material_diameter": {
+            "default_value": 1.75
+        },
+        "machine_head_polygon": {
+            "default_value": [
+                [-75, -18],
+                [-75, 35],
+                [18, 35],
+                [18, -18]
+            ]
+        },
+        "gantry_height": {
+            "default_value": 55
+        },
+		"machine_use_extruder_offset_to_offset_coords": {
+            "default_value": true
+        },
+        "machine_gcode_flavor": {
+            "default_value": "RepRap (Marlin/Sprinter)"
+        },
+        "machine_start_gcode": {
+            "default_value": ";machine_start_gcode\nG21 ;metric values\nG90 ;absolute positioning\nM82 ;set extruder to absolute mode\nM107 ;start with the fan off\nG28 X0 Y0 ;move X/Y to min endstops\nG28 Z0 ;move Z to min endstops\nG1 Z15.0 F9000 ;move the platform down 15mm\nG92 E0 ;zero the extruded length\nG1 F200 E3 ;extrude 3mm of feed stock\nG92 E0 ;zero the extruded length again\nG1 F9000\n;Put printing message on LCD screen\nM117 Printing...\n;end of machine_start_gcode"
+        },
+        "machine_end_gcode": {
+            "default_value": ";machine_end_gcode\n"
+        },
+		"machine_extruder_count": {
+            "default_value": 2
+        },
+        "prime_tower_position_x": {
+            "value": "195"
+        },
+        "prime_tower_position_y": {
+            "value": "149"
+        },
+		
+		"infill_pattern": { "value": "'triangles'" },
+		"default_material_print_temperature": { "value": "200" },
+		"material_bed_temperature": { "value": "40", "maximum_value": "90" },
+		"material_bed_temperature_layer_0": { "maximum_value": "90" }
+    }
+}
